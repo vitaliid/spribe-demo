@@ -1,0 +1,10 @@
+
+### Example to get latest rates
+GET {{exchange_server_host}}/api/latest.json?app_id={{app_id}}
+Content-Type: application/json
+
+### Example to get list of all currency symbols available
+GET {{exchange_server_host}}/api/currencies.json?app_id={{app_id}}
+Content-Type: application/json
+
+
