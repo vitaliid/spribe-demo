@@ -2,6 +2,8 @@ plugins {
     java
     id("org.springframework.boot") version "3.3.3"
     id("io.spring.dependency-management") version "1.1.6"
+    id("org.sonarqube") version "4.4.1.3373"
+    id("jacoco")
 }
 
 group = "com.spribe"
@@ -25,6 +27,10 @@ configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())
     }
+}
+
+tasks.bootJar {
+    archiveBaseName.set("com.spribe.demo")
 }
 
 repositories {
