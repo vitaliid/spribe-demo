@@ -10,11 +10,9 @@ group = "com.spribe"
 version = "0.0.1-SNAPSHOT"
 
 object Versions {
-    const val SPRINGDOC = "2.3.0"
-    const val JWT = "4.4.0"
     const val MAPSTRUCT = "1.5.5.Final"
     const val MAPSTRUCT_LOMBOK_BINDING = "0.2.0"
-    const val ZEEBE_STARTER = "8.5.2"
+    const val HYPERSISTENCE_UTILS = "3.8.2"
 }
 
 java {
@@ -46,6 +44,8 @@ dependencies {
 
     implementation("org.projectlombok:lombok-mapstruct-binding:${Versions.MAPSTRUCT_LOMBOK_BINDING}")
     implementation("org.mapstruct:mapstruct:${Versions.MAPSTRUCT}")
+
+    implementation("io.hypersistence:hypersistence-utils-hibernate-63:${Versions.HYPERSISTENCE_UTILS}")
 
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")

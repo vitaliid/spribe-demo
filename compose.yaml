@@ -1,9 +1,10 @@
 services:
   postgres:
-    image: 'postgres:latest'
+    container_name: spribe-demo
+    image: postgres:latest
     environment:
-      - 'POSTGRES_DB=spribe-db'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_DB: spribe-db
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: myuser
     ports:
-      - '5432'
+      - 5436:5432

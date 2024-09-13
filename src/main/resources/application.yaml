@@ -9,9 +9,10 @@ spring:
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
+
 
 management:
   endpoints:
