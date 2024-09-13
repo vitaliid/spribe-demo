@@ -48,7 +48,7 @@ dependencies {
     implementation("io.hypersistence:hypersistence-utils-hibernate-63:${Versions.HYPERSISTENCE_UTILS}")
 
     compileOnly("org.projectlombok:lombok")
-    developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+
     runtimeOnly("org.postgresql:postgresql")
     
     annotationProcessor("org.projectlombok:lombok")

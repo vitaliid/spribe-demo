@@ -15,3 +15,7 @@ logging:
         web:
           filter:
             CommonsRequestLoggingFilter: DEBUG
+
+app:
+  exchange-server:
+    url: https://openexchangerates.org/api/
