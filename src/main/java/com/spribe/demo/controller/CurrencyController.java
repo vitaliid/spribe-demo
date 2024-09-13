@@ -15,7 +15,7 @@ public class CurrencyController {
 
     @GetMapping
     public Set<String> getCurrencies() {
-        return currencyService.getCurrencies();
+        return currencyService.getSymbols();
     }
 
     @PostMapping

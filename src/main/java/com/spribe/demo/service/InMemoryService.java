@@ -28,6 +28,6 @@ public class InMemoryService {
     }
 
     public void updateRates(String currencySymbol, RatesTake ratesTake) {
-        CURRENCY_SYMBOL_WITH_RATES.putIfAbsent(currencySymbol, ratesTake);
+        CURRENCY_SYMBOL_WITH_RATES.put(currencySymbol, ratesTake);
     }
 }
