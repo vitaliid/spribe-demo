@@ -11,6 +11,9 @@ spring:
       ddl-auto: update
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
+  threads:
+    virtual:
+      enabled: true
 
 
 management:

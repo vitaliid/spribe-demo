@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
@@ -13,6 +14,9 @@ import java.io.Serializable;
 @Setter
 @IdClass(UuidPk.class)
 public class Currency implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1;
 
     @Id
     private String id;

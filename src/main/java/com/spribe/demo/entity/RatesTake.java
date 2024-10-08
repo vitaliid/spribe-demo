@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,9 @@ import java.util.Map;
 @Setter
 @IdClass(UuidPk.class)
 public class RatesTake implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1;
 
     @Id
     private String id;

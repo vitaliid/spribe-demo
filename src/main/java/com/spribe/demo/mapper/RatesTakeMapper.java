@@ -7,5 +7,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface RatesTakeMapper {
 
-     RatesTakeResponse fromEntity(RatesTake ratesTake);
+    RatesTakeResponse fromEntity(RatesTake ratesTake);
 }

@@ -1,9 +1,10 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.3.3"
+    id("org.springframework.boot") version "3.3.4"
     id("io.spring.dependency-management") version "1.1.6"
     id("org.sonarqube") version "4.4.1.3373"
     id("jacoco")
+    id("org.openrewrite.rewrite") version "latest.integration"
 }
 
 group = "com.spribe"
@@ -17,7 +18,7 @@ object Versions {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -50,12 +51,26 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
 
     runtimeOnly("org.postgresql:postgresql")
-    
+
     annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("org.mapstruct:mapstruct-processor:${Versions.MAPSTRUCT}")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    rewrite("org.openrewrite.recipe:rewrite-migrate-java:2.26.0")
+    rewrite("org.openrewrite.recipe:rewrite-spring:5.20.0")
+
+}
+
+rewrite {
+    // Reformats Java Code
+    activeRecipe("org.openrewrite.java.format.AutoFormat")
+    activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3")
+    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+
+    activeRecipe("org.openrewrite.java.spring.boot3.SpringBoot3BestPractices")
+    activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices")
 }
 
 tasks.withType<Test> {
