@@ -14,6 +14,7 @@ object Versions {
     const val MAPSTRUCT = "1.5.5.Final"
     const val MAPSTRUCT_LOMBOK_BINDING = "0.2.0"
     const val HYPERSISTENCE_UTILS = "3.8.2"
+    const val HSQLDB = "2.7.3"
 }
 
 java {
@@ -56,6 +57,7 @@ dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:${Versions.MAPSTRUCT}")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.hsqldb:hsqldb:${Versions.HSQLDB}")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     rewrite("org.openrewrite.recipe:rewrite-migrate-java:2.26.0")
@@ -66,11 +68,19 @@ dependencies {
 rewrite {
     // Reformats Java Code
     activeRecipe("org.openrewrite.java.format.AutoFormat")
+
     activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3")
     activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
 
     activeRecipe("org.openrewrite.java.spring.boot3.SpringBoot3BestPractices")
     activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices")
+
+    activeRecipe("org.openrewrite.java.testing.mockito.MockitoBestPractices")
+    activeRecipe("org.openrewrite.java.testing.cleanup.BestPractices")
+
+    activeRecipe("org.openrewrite.maven.BestPractices")
+
+    activeRecipe("org.openrewrite.staticanalysis.JavaApiBestPractices")
 }
 
 tasks.withType<Test> {

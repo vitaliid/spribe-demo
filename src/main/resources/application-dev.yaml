@@ -19,3 +19,4 @@ logging:
 app:
   exchange-server:
     url: https://openexchangerates.org/api/
+    app-id: 512c58dceca743249cf9230badeb31cc

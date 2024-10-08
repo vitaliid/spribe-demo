@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:test;sql.syntax_pgs=true
+    username: sa
+    password:
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+
+
+app:
+  exchange-server:
+    url: http://127.0.0.1
+    app-id: test
