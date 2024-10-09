@@ -14,7 +14,7 @@ object Versions {
     const val MAPSTRUCT = "1.5.5.Final"
     const val MAPSTRUCT_LOMBOK_BINDING = "0.2.0"
     const val HYPERSISTENCE_UTILS = "3.8.2"
-    const val HSQLDB = "2.7.3"
+    const val TC = "1.20.2"
 }
 
 java {
@@ -57,7 +57,7 @@ dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:${Versions.MAPSTRUCT}")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.hsqldb:hsqldb:${Versions.HSQLDB}")
+    testImplementation("org.testcontainers:postgresql:${Versions.TC}")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     rewrite("org.openrewrite.recipe:rewrite-migrate-java:2.26.0")

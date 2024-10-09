@@ -1,6 +1,7 @@
 --liquibase formatted sql
 
-create table currency
+--changeset vitaliid:init-schema-1-currency
+create table if not exists currency
 (
     id     uuid        not null
         primary key,
@@ -9,7 +10,8 @@ create table currency
             unique
 );
 
-create table if not exists public.rates_take
+--changeset vitaliid:init-schema-1-rates
+create table if not exists rates_take
 (
     id        uuid   not null
         primary key,
@@ -17,5 +19,5 @@ create table if not exists public.rates_take
     timestamp bigint not null,
     base_id   uuid   not null
         constraint base_id_currency_id_key
-            references public.currency
+            references currency
 );
