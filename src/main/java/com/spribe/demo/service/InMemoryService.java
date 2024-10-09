@@ -4,16 +4,15 @@ import com.spribe.demo.entity.RatesTake;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
 public class InMemoryService {
 
-    private static final Map<String, RatesTake> CURRENCY_SYMBOL_WITH_RATES = new HashMap<>();
+    private static final Map<String, RatesTake> CURRENCY_SYMBOL_WITH_RATES = new ConcurrentHashMap<>();
 
     public Set<String> getSymbols() {
         return CURRENCY_SYMBOL_WITH_RATES.keySet();
@@ -24,7 +23,7 @@ public class InMemoryService {
     }
 
     public void registerSymbol(String currencySymbol) {
-        CURRENCY_SYMBOL_WITH_RATES.putIfAbsent(currencySymbol, null);
+        CURRENCY_SYMBOL_WITH_RATES.putIfAbsent(currencySymbol, new RatesTake());
     }
 
     public void updateRates(String currencySymbol, RatesTake ratesTake) {

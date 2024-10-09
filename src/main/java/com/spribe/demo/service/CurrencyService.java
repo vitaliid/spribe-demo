@@ -52,8 +52,8 @@ public class CurrencyService {
             Currency newCurrency = new Currency();
             newCurrency.setSymbol(symbol);
             currencyRepository.save(newCurrency);
-        }
 
-        inMemoryService.registerSymbol(symbol);
+            inMemoryService.registerSymbol(symbol);
+        }
     }
 }

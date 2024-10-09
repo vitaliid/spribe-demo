@@ -7,12 +7,18 @@ Content-Type: application/json
 GET {{exchange_server_host}}/api/currencies.json?app_id={{app_id}}
 Content-Type: application/json
 
-### Add new currency
+
+### Getting currencies used in the project
+
+GET http://localhost:8080/api/v1/rates/{currency}
+
+### Getting rates for a currency(base)
+GET http://localhost:8080/api/v1/rates/USD
+
+### Add new currency for getting exchange rates
 POST {{environment}}/api/v1/currencies
 Content-Type: application/json
 
 {
   "symbol": "USD"
 }
-
-

@@ -12,8 +12,8 @@ public class RatesTakeController {
 
     private final RatesTakeService ratesTakeService;
 
-    @GetMapping("/{currency}")
-    public RatesTakeResponse getRates(@PathVariable(name = "currency") String currencySymbol) {
+    @GetMapping("/{base}")
+    public RatesTakeResponse getRates(@PathVariable(name = "base") String currencySymbol) {
         return ratesTakeService.getRates(currencySymbol);
     }
 }
