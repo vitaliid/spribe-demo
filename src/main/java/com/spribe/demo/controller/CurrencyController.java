@@ -1,5 +1,6 @@
 package com.spribe.demo.controller;
 
+import com.spribe.demo.dto.AddCurrencyRequest;
 import com.spribe.demo.service.CurrencyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class CurrencyController {
     }
 
     @PostMapping
-    public void addCurrency(@RequestBody String symbol) {
-        currencyService.addCurrency(symbol);
+    public void addCurrency(@RequestBody AddCurrencyRequest request) {
+        currencyService.addCurrency(request.getSymbol());
     }
 }

@@ -24,7 +24,7 @@ public class RatesTakeService {
         return ratesTakeMapper.fromEntity(rates);
     }
 
-    public void saveRates(RatesTake ratesTake) {
-        ratesTakeRepository.save(ratesTake);
+    public RatesTake saveRates(RatesTake ratesTake) {
+        return ratesTakeRepository.save(ratesTake);
     }
 }

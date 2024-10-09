@@ -34,7 +34,6 @@ public class RatesTake implements Serializable {
             referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "base_id_currency_id_key"),
             nullable = false,
-            insertable = false,
             updatable = false)
     private Currency base;
 

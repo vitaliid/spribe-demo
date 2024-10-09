@@ -7,4 +7,12 @@ Content-Type: application/json
 GET {{exchange_server_host}}/api/currencies.json?app_id={{app_id}}
 Content-Type: application/json
 
+### Add new currency
+POST {{environment}}/api/v1/currencies
+Content-Type: application/json
+
+{
+  "symbol": "USD"
+}
+
 
