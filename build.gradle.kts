@@ -15,6 +15,7 @@ object Versions {
     const val MAPSTRUCT_LOMBOK_BINDING = "0.2.0"
     const val HYPERSISTENCE_UTILS = "3.8.2"
     const val TC = "1.20.2"
+    const val WIREMOCK = "3.0.1"
 }
 
 java {
@@ -58,6 +59,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:postgresql:${Versions.TC}")
+    testImplementation("com.github.tomakehurst:wiremock-jre8-standalone:${Versions.WIREMOCK}")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     rewrite("org.openrewrite.recipe:rewrite-migrate-java:2.26.0")
